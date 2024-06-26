@@ -1,0 +1,16 @@
+{
+  "name": "mhproduction-nodejs",
+  "version": "1.0.0",
+  "description": "projet examen final",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Rida",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "mysql2": "^3.10.1",
+    "sequelize": "^6.37.3"
+  }
+}
