@@ -2,7 +2,7 @@ const PrestationVideo = require("../Models/PrestationVideo");
 
 class PrestationVideoService {
 
-    async GetAllPrestationVideo(){
+    async getAllPrestationVideo(){
         return await PrestationVideo.findAll({include : "prestation_types"})
     }
 

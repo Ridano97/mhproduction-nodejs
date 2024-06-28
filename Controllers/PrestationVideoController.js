@@ -2,9 +2,9 @@ const PrestationVideoService = require("../Services/PrestationVideoService");
 
 
 class PrestationVideoController {
-    async GetAllPrestationVideo(request, result){
+    async getAllPrestationVideo(request, result){
         try {
-            const prestationvideos = await PrestationVideoService.GetAllPrestationVideo();
+            const prestationvideos = await PrestationVideoService.getAllPrestationVideo();
             result.json(prestationvideos)
         } catch (error) {
             console.log(error);

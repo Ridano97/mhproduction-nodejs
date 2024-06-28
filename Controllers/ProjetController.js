@@ -1,9 +1,9 @@
 const ProjetService = require("../Services/ProjetService")
 
 class ProjetController {
-    async GetAllProjet(request, result){
+    async getAllProjet(request, result){
         try {
-            const projets = await ProjetService.GetAllProjet();
+            const projets = await ProjetService.getAllProjet();
             result.json(projets)
         } catch (error) {
             console.log(error);

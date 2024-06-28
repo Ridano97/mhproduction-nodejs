@@ -2,7 +2,7 @@ const Projet = require("../Models/Projet")
 
 class ProjetService {
 
-    async GetAllProjet(){
+    async getAllProjet(){
         return await Projet.findAll({include : "prestationvideos"});
     }
     

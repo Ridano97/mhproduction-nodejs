@@ -1,7 +1,7 @@
 const PrestationType = require("../Models/PrestationType");
 
 class PrestationTypeService {
-    async GetAllPrestationType(){
+    async getAllPrestationType(){
         return await PrestationType.findAll();
     }
 }

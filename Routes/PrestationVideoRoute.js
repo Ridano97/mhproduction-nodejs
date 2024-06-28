@@ -3,6 +3,6 @@ const PrestationVideoController = require("../Controllers/PrestationVideoControl
 const router = express.Router();
 
 
-router.get("/", (request, result) => PrestationVideoController.GetAllPrestationVideo(request, result));
+router.get("/", (request, result) => PrestationVideoController.getAllPrestationVideo(request, result));
 
 module.exports = router ;

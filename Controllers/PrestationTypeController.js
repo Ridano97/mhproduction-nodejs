@@ -1,9 +1,9 @@
 const PrestationTypeService = require("../Services/PrestationTypeService");
 
 class PrestationTypeController{
-    async GetAllPrestationType(request, result){
+    async getAllPrestationType(request, result){
         try {
-            const prestationstypes = await PrestationTypeService.GetAllPrestationType();
+            const prestationstypes = await PrestationTypeService.getAllPrestationType();
             result.json(prestationstypes)
         } catch (error) {
             console.log(error);
