@@ -33,6 +33,26 @@ class EntrepriseController {
         }
     }
 
+    async removeEnteprise(request, result){
+        try {
+            EntrepriseService.removeEntreprise(request.params.id);
+            result.json({message : "Entreprise supprimée"})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Echec dans la suppression de l'entreprise"})
+        }
+    }
+
+    async updateEntreprise(request, result){
+        try {
+            const entreprises = EntrepriseService.updateEntreprise(request.params.id, request.body);
+            result.json(entreprises)
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Echec dans la modification de l'entreprise"})
+        }
+    }
+
 }
 
 module.exports = new EntrepriseController();

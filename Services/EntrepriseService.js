@@ -15,6 +15,19 @@ class EntrepriseService {
         return await Entreprise.create(entreprise);
     }
 
+    async removeEntreprise(entrepriseID){
+        return await Entreprise.destroy({
+            where : { ent_id : entrepriseID}
+        });
+    }
+
+    async updateEntreprise(entrepriseID, entreprise){
+        return await Entreprise.update( entreprise, {
+            where : { ent_id : entrepriseID},
+            individualHooks : true
+        })
+    }
+
 }
 
 

@@ -26,6 +26,7 @@ class AdministrateurService {
             individualHooks : true
         })
     }
+
 }
 
 module.exports = new AdministrateurService() ;
