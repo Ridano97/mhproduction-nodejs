@@ -24,6 +24,7 @@ class EntrepriseController {
 
     async addEntreprise(request, result){
         try {
+            console.log(request.body);
             const entreprises = await EntrepriseService.addEntreprise(request.body);
             result.json(entreprises)
         } catch (error) {

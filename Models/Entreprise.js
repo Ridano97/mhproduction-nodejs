@@ -1,8 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../Config/Sequelize");
 const Projet = require("./Projet");
+const bcrypt = require("bcrypt");
 
 class Entreprise extends Model {
+
+    async validatePassword(mdp){
+        console.log(this.ent_mdp);
+        return await bcrypt.compare(mdp, this.ent_mdp);
+    }
+
 
 }
 
@@ -38,11 +45,23 @@ Entreprise.init ({
     sequelize,
     modelName : 'Entreprise',
     tableName : 'Entreprise',
-    timestamps : false
+    timestamps : false,
+    hooks : {
+        
+        beforeCreate : async (entreprise) => {
+            entreprise.ent_mdp = await bcrypt.hash(entreprise.ent_mdp, 10);
+        },
+
+        beforeUpdate : async (entreprise) => {
+            if(entreprise.changed("ent_mdp")){
+                entreprise.ent_mdp = await bcrypt.hash(entreprise.ent_mdp, 10);
+            }
+        }
+    }
 
 })
 
-Entreprise.hasMany(Projet, {as : "projets" , foreignKey : "ent_id"})
+Entreprise.hasMany(Projet, {as : "projets" , foreignKey : "ent_id"});
 Projet.belongsTo(Entreprise, {as : "entreprises" , foreignKey : "ent_id"});
 
 module.exports = Entreprise ; 

@@ -1,8 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../Config/Sequelize")
+const sequelize = require("../Config/Sequelize");
+const bcrypt = require("bcrypt");
 
 
 class Administrateur extends Model {
+
+    async validatePassword(mdp){
+        console.log(this.adm_mdp);
+        return await bcrypt.compare(mdp, this.adm_mdp);
+    }
+
 
 }
 
@@ -42,9 +49,22 @@ Administrateur.init ({
     sequelize, 
     modelName : 'Administrateur',
     tableName : 'Administrateur', 
-    timestamps : false
+    timestamps : false,
+    hooks : {
+
+        beforeCreate : async (administrateur) => {
+            administrateur.adm_mdp = await bcrypt.hash(administrateur.adm_mdp, 10);
+        },
+
+        beforeUpdate : async (administrateur) => {
+            if(administrateur.changed("adm_mdp")){
+                administrateur.adm_mdp = await bcrypt.hash(administrateur.adm_mdp, 10);
+            }
+        }
+    }
 
 })
+
 
 
 module.exports = Administrateur ;
