@@ -43,6 +43,11 @@ Administrateur.init ({
     adm_url_logo : {
         type : DataTypes.STRING,
         allowNull : false
+    },
+
+    adm_role : {
+        type : DataTypes.ENUM('admin', 'entreprise'),
+        allowNull : false
     }
 }, {
 

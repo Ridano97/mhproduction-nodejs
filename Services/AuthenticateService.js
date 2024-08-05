@@ -33,7 +33,8 @@ class AuthenticateService {
     generatetoken(administrateur){
         const payload = {
             id : administrateur.adm_id,
-            email : administrateur.adm_email
+            email : administrateur.adm_email,
+            role : administrateur.adm_role 
         }
         return jwt.sign(payload,config.SECRET,{expiresIn:"2h"})
     }
