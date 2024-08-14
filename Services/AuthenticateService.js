@@ -42,7 +42,8 @@ class AuthenticateService {
     generatetokenII(entreprise){
         const payload = {
             id : entreprise.ent_id,
-            nom : entreprise.ent_nom
+            nom : entreprise.ent_nom,
+            role : entreprise.ent_role
         }
         return jwt.sign(payload,config.SECRET,{expiresIn:"2h"})
     }

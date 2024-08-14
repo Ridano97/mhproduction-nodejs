@@ -48,22 +48,6 @@ class AuthenticateController {
         }
     }
 
-  /*   async loginEntreprise(request, result) {
-        try {
-            const { nom, mdp } = request.body;
-            console.log("Nom reçu:", nom);
-            console.log("Mot de passe reçu:", mdp);
-    
-            const token = await AuthenticateService.loginEntreprise(nom, mdp);
-            result.json({ token: token, message: "Connexion avec succès" });
-        } catch (error) {
-            result.status(401);
-            console.log(error);
-            result.json({ error: "Mot de passe ou nom incorrect" });
-        }
-    } */
-    
-
     authenticateToken(request, result, next){
         const authHeader = request.headers["authorization"];
         const token = authHeader && authHeader.split(' ')[1];

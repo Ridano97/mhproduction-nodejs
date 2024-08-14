@@ -38,7 +38,13 @@ Entreprise.init ({
     ent_logo_url : {
         type : DataTypes.STRING,
         allowNull : false
+    },
+
+    ent_role : {
+        type : DataTypes.ENUM('admin', 'entreprise'),
+        allowNull : false
     }
+
 
 }, {
 
