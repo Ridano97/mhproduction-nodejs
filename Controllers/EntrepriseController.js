@@ -11,7 +11,6 @@ class EntrepriseController {
             result.json({error : "Echec dans la récupération des enteprises"})
         }
     }
-
     async getEntrepriseByID(request, result){
         try {
             const entreprises = await EntrepriseService.getEntrepriseByID(request.params.id);
@@ -21,7 +20,6 @@ class EntrepriseController {
             result.json({error : "Echec dans la récupération de l'entreprise par ID"})
         }
     }
-
     async addEntreprise(request, result){
         try {
             console.log(request.body);
@@ -33,7 +31,6 @@ class EntrepriseController {
             result.json({error : "Echec lors de l'ajout de l'entreprise "})
         }
     }
-
     async removeEnteprise(request, result){
         try {
             EntrepriseService.removeEntreprise(request.params.id);
@@ -43,7 +40,6 @@ class EntrepriseController {
             result.json({error : "Echec dans la suppression de l'entreprise"})
         }
     }
-
     async updateEntreprise(request, result){
         try {
             const entreprises = EntrepriseService.updateEntreprise(request.params.id, request.body);
@@ -53,7 +49,5 @@ class EntrepriseController {
             result.json({error : "Echec dans la modification de l'entreprise"})
         }
     }
-
 }
-
 module.exports = new EntrepriseController();

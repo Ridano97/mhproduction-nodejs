@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const AuthenticateService = require("../Services/AuthenticateService");
 
 class AuthenticateController {
-    
     async register(request, result){
         try {
             const administrateur = await AuthenticateService.register(request.body);
@@ -13,7 +12,6 @@ class AuthenticateController {
             result.json({error : "Echec lors de l'inscription"})
         }
     }
-
     async registerEntreprise(request, result){
         try {
             const entreprise = await AuthenticateService.registerEntreprise(request.body);

@@ -8,3 +8,6 @@ router.post("/register", (request, result) => AuthenticateController.register(re
 router.post("/registerentreprise", (request, result) => AuthenticateController.registerEntreprise(request, result));
 
 module.exports = router ; 
+
+
+

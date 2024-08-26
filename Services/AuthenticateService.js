@@ -29,7 +29,6 @@ class AuthenticateService {
         return this.generatetokenII(entreprise);
     }
    
-
     generatetoken(administrateur){
         const payload = {
             id : administrateur.adm_id,
@@ -38,7 +37,6 @@ class AuthenticateService {
         }
         return jwt.sign(payload,config.SECRET,{expiresIn:"2h"})
     }
-
     generatetokenII(entreprise){
         const payload = {
             id : entreprise.ent_id,

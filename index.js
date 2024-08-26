@@ -10,17 +10,32 @@ const prestationTypeRouter = require("./Routes/PrestationTypeRoute");
 const authenticateRouter = require("./Routes/AuthenticateRoute");
 const AuthenticateController = require("./Controllers/AuthenticateController");
 
-
 app.use(cors());
 app.use(express.json());
 app.use("/auth", authenticateRouter);
-app.use("/entreprises"/* , AuthenticateController.authenticateToken  */,entrepriseRouter);
+app.use("/entreprises",/*  AuthenticateController.authenticateToken , */entrepriseRouter);
 app.use("/administrateurs", AuthenticateController.authenticateToken , administrateurRouter);
 app.use("/projets", AuthenticateController.authenticateToken , projetRouter );
 app.use("/tags", AuthenticateController.authenticateToken ,tagRouter );
 app.use("/prestationsvideos", AuthenticateController.authenticateToken , prestationVideoRouter);
 app.use("/prestationstypes", AuthenticateController.authenticateToken , prestationTypeRouter);
 
-
-
 module.exports = app ; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
